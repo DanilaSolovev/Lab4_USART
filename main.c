@@ -43,6 +43,7 @@
 /*Определение прототипов функциий*/
 void beg_og(uint32_t tick_delay);
 void init_IT(void);
+void init_Int_UART(void);
 void gpio_settings_set(GPIO_TypeDef* g, uint16_t pin, uint8_t io);
 void delay (uint32_t ticks);
 uint32_t tumblrch(void);
@@ -122,7 +123,25 @@ int main(void)
 
 
 }
+void init_Int_UART(void)
+{
+    //Разрешить прерывание 2 и 3 пина порта A
+	AFIO->EXTICR[0] &= (~0xFF)>>8  ;
+	//Разрешить прерывание 2 и 3 линии
+	EXTI->IMR|=(EXTI_IMR_MR2);
+	EXTI->EMR|=(EXTI_EMR_MR2);
+    EXTI->IMR|=(EXTI_IMR_MR3);
+	EXTI->EMR|=(EXTI_EMR_MR3);
+	
+	//Прерывание 2 и 3 линии по спадающему фронту
+	EXTI->RTSR|=(EXTI_RTSR_TR2);
+    EXTI->RTSR|=(EXTI_RTSR_TR3);
+	
+	/* Разрешение прерываний */
+	//NVIC->ISER[(((uint32_t)EXTI15_10_IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)EXTI15_10_IRQn) & 0x1FUL));
+    NVIC->ISER[(((uint32_t)USART2_IRQn ) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)USART2_IRQn ) & 0x1FUL));
 
+}
 void UART2cnf(void)
 {
     RCC->APB1ENR |= (1<<17);
