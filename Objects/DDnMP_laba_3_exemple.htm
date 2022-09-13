@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\DDnMP_laba_3_exemple.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\DDnMP_laba_3_exemple.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Jun 10 11:03:25 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Sep 13 23:20:19 2022
 <BR><P>
 <H3>Maximum Stack Usage =         16 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -472,56 +472,51 @@ Global Symbols
 <P><STRONG><a name="[5]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[54]"></a>UART2cnf</STRONG> (Thumb, 144 bytes, Stack size 0 bytes, main.o(i.UART2cnf))
+<P><STRONG><a name="[4f]"></a>UART2cnf</STRONG> (Thumb, 144 bytes, Stack size 0 bytes, main.o(i.UART2cnf))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4e]"></a>UARTResive</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(i.UARTResive))
-<BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;beg_og
+<P><STRONG><a name="[52]"></a>UARTResive</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(i.UARTResive))
+<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4d]"></a>beg_og</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, main.o(i.beg_og))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = beg_og
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_set
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_change
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTResive
-</UL>
-<BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[53]"></a>UARTSend</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(i.UARTSend))
+<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[50]"></a>delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.delay))
-<BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;beg_og
+<P><STRONG><a name="[54]"></a>delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.delay))
+<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[52]"></a>gpio_settings_set</STRONG> (Thumb, 890 bytes, Stack size 8 bytes, main.o(i.gpio_settings_set))
+<P><STRONG><a name="[4d]"></a>gpio_settings_set</STRONG> (Thumb, 890 bytes, Stack size 8 bytes, main.o(i.gpio_settings_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = gpio_settings_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[53]"></a>init_IT</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, main.o(i.init_IT))
+<P><STRONG><a name="[4e]"></a>init_IT</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, main.o(i.init_IT))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[51]"></a>led_change</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(i.led_change))
-<BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;beg_og
-</UL>
-
-<P><STRONG><a name="[4f]"></a>led_set</STRONG> (Thumb, 278 bytes, Stack size 0 bytes, main.o(i.led_set))
+<P><STRONG><a name="[50]"></a>init_Int_UART</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, main.o(i.init_Int_UART))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;beg_og
 </UL>
 
-<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 204 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[51]"></a>led_set</STRONG> (Thumb, 278 bytes, Stack size 0 bytes, main.o(i.led_set))
+<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 226 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = main &rArr; gpio_settings_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_set
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_IT
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_settings_set
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;beg_og
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2cnf
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_set
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_Int_UART
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_IT
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_settings_set
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTSend
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTResive
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2cnf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
