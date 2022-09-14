@@ -104,19 +104,19 @@ int main(void)
     init_Int_UART();
     led_set(0b10000000);
     pin_state = Start;
-//  while (1)
-//  {
-//	    beg_og(1000000);
-//  }
+  while (1)
+  {
+	    beg_og(1000000);
+  }
 
     
-    while(1)
-    {
-        data = UARTResive();
-        UARTSend(data);
-        
-        delay(100000);
-    }
+//    while(1)
+//    {
+//        data = UARTResive();
+//        UARTSend(data);
+//        
+//        delay(100000);
+//    }
     
 
 
@@ -667,10 +667,7 @@ uint8_t uvernaj(GPIO_TypeDef* g, uint16_t pin, uint32_t n)
 void USART2_IRQnHandler (void)
 {
         EXTI->PR |= GPIO_PIN_3;
-        data = UARTResive();
-        UARTSend(data);
-        delay(1000);
-        UARTSend(data);
+        spdnew = UARTResive();
 }
 void EXTI15_10_IRQHandler (void)
 {
