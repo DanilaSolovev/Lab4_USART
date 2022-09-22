@@ -102,6 +102,9 @@ int main(void)
 	init_IT();
 	UART2cnf();
     init_Int_UART();
+    /* Разрешение прерываний */
+    NVIC->ISER[1] = (uint32_t)(1UL << (((uint32_t)USART2_IRQn ) & 0x1FUL));
+    USART2->CR1 |= (1<<5); /*Прерывание при приеме данных*/
     led_set(0b10000000);
     pin_state = Start;
   while (1)
@@ -126,20 +129,9 @@ int main(void)
 }
 void init_Int_UART(void)
 {
-    //Разрешить прерывание 2 и 3 пина порта A
-	AFIO->EXTICR[0] &= (~0xFF)>>8  ;
-	//Разрешить прерывание 2 и 3 линии
-	EXTI->IMR|=(EXTI_IMR_MR2);
-	EXTI->EMR|=(EXTI_EMR_MR2);
-    EXTI->IMR|=(EXTI_IMR_MR3);
-	EXTI->EMR|=(EXTI_EMR_MR3);
-	
-	//Прерывание 2 и 3 линии по спадающему фронту
-	EXTI->RTSR|=(EXTI_RTSR_TR2);
-    EXTI->RTSR|=(EXTI_RTSR_TR3);
 	
 	/* Разрешение прерываний */
-    NVIC->ISER[(((uint32_t)USART2_IRQn ) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)USART2_IRQn ) & 0x1FUL));
+    NVIC->ISER[1] = (uint32_t)(1UL << (((uint32_t)USART2_IRQn ) & 0x1FUL));
     USART2->CR1 |= (1<<5); /*Прерывание при приеме данных*/
 
 }
@@ -666,7 +658,6 @@ uint8_t uvernaj(GPIO_TypeDef* g, uint16_t pin, uint32_t n)
 /*Обработчик прерывания по линии EXTI15_10*/
 void USART2_IRQnHandler (void)
 {
-        EXTI->PR |= GPIO_PIN_3;
         spdnew = UARTResive();
 }
 void EXTI15_10_IRQHandler (void)
